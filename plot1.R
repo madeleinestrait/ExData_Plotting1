@@ -10,5 +10,8 @@ FebData <- data %>% filter(Date >= "2007-02-01" & Date <= "2007-02-02" ) %>%
 FebData$DateTime <- as.POSIXct(FebData$DateTime, format= "%Y-%m-%d %H:%M:%S")
 
 windows()
+dev.copy(png, file="plot1.png", height=480, width=480)
+
 hist(FebData$Global_active_power, col = "red", main = "Global Active Power", xlab = "Global Active Power (kilowatts)")
-png(file="plot1.png", height=480, width=480)
+
+dev.off()
